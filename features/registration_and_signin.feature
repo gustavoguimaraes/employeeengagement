@@ -13,3 +13,8 @@ Feature: Registration and Signin
     Given I am a user
     When I login
     Then I should see the app dashboard information
+
+    Scenario: Accessing the Admin Page
+    Given I am an Admin
+    When I login as an admin
+    Then I should see the Admin page
