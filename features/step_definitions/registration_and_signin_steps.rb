@@ -3,7 +3,7 @@ Given(/^I am a visitor$/) do
 end
 
 When(/^I am on the registration page$/) do
-  visit "/users/sign_up"
+  visit register_path
 end
 
 When(/^I register to the site$/) do
@@ -23,8 +23,23 @@ Given(/^I am a user$/) do
 end
 
 When(/^I login$/) do
-  visit sign_in_path
+  visit login_path
   fill_in "Email", with: @user.email
   fill_in "Password", with: @user.password
   click_on "Sign in"
+end
+
+Given(/^I am an Admin$/) do
+  @admin = FactoryGirl.create(:admin_user)
+end
+
+When(/^I login as an admin$/) do
+  visit '/admin'
+  fill_in "Email", with: @admin.email
+  fill_in "Password", with: @admin.password
+  click_on "Login"
+end
+
+Then(/^I should see the Admin page$/) do
+  expect(page).to have_content("Dashboard")
 end

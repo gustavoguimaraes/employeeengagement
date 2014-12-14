@@ -5,11 +5,11 @@
     <nav class="collapse navbar-collapse">
       <ul class="nav navbar-nav pull-right">
         <% if user_signed_in? %>
-          <p class="navbar-text pull-right"><%= link_to "Log out", sign_out_path%>
+          <p class="navbar-text pull-right"><%= link_to "Log out", logout_path%>
           </p>
         <%else%>
           <p class="navbar-text pull-right">
-            <%= link_to "Log in", sign_in_path%>
+            <%= link_to "Log in", login_path%>
           </p>
         <%end%>
       </ul>

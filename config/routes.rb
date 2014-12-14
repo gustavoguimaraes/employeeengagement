@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  #devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -7,11 +9,20 @@ Rails.application.routes.draw do
   root to: "home#index"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-  devise_for :users, :skip => [:sessions]
-  as :user do
-    get "sign_in", to: "devise/sessions#new"
-    delete "sign_out", to: "devise/sessions#destroy"
-  end
+  # devise_for :users, :skip => [:sessions]
+  # as :user do
+  #   get "sign_in", to: "devise/sessions#new"
+  #   delete "sign_out", to: "devise/sessions#destroy"
+  # end
+
+devise_for :users, :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
+
+ devise_scope :user do
+  get "login", to: "devise/sessions#new"
+  get "logout", to: "devise/sessions#destroy"
+  get "register", to: "devise/registrations#new"
+ end
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
