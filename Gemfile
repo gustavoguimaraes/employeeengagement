@@ -32,6 +32,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rake'
   gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'pry'
   gem 'puma'

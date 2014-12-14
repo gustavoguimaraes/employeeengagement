@@ -11,3 +11,5 @@ test: &test
   database: employeeengagement_test
   pool: 2
   min_messages: error
+cucumber:
+  <<: *test
