@@ -1,1 +1,7 @@
-<h1>Hello You!</h1>
+<%if current_user.company_admin? %>
+  <h1> Welcome Admin</h1>
+  <h1>Hello You!</h1>
+<%else%>
+  <h1>Welcome <%= current_user.email%></h1>
+  <h1>Hello You!</h1>
+<%end%>
