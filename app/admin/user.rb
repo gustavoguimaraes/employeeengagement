@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-permit_params :email, :password, :password_confirmation, :role
+permit_params :email, :password, :password_confirmation, :role, :company_id
 
   index do
     selectable_column
@@ -8,6 +8,7 @@ permit_params :email, :password, :password_confirmation, :role
     column :current_sign_in_at
     column :sign_in_count
     column :created_at
+    column :company
     column :role
     actions
   end
@@ -21,6 +22,7 @@ permit_params :email, :password, :password_confirmation, :role
     f.inputs "User Details" do
       f.input :email
       f.input :role, prompt: "Select", as: :select, collection: User.roles.keys
+      f.input :company_id, as: :select, collection: Company.all
     end
     f.actions
   end
