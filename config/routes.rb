@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root to: "home#index"
   get 'dashboard', to: "dashboard#index"
 
+  get '/auth/twitter/callback', to: "callbacks#twitter"
+
   devise_for :users, :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
    devise_scope :user do
