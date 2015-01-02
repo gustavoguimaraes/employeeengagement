@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: "dashboard#index"
 
   get '/auth/twitter/callback', to: "callbacks#twitter"
+  get '/auth/facebook/callback', to: "callbacks#facebook"
 
   devise_for :users, :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 

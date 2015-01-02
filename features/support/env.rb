@@ -56,3 +56,17 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+include Warden::Test::Helpers
+Warden.test_mode!
+
+OmniAuth.config.test_mode = true
+
+OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+  provider: "twitter",
+  uid: "12345"
+})
+
+OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+  provider: "facebook",
+  uid: "56789"
+})

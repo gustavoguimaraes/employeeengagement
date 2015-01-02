@@ -1,7 +1,7 @@
 Feature: Registration and Signin
   As a user
-  I need to be able to signup or sign in if already registered to the application
-  So that I see the app dashboard
+  I need to be able to signup or sign in
+  So that I can access the application dashboard
 
   Scenario: Signup
     Given I am a visitor
