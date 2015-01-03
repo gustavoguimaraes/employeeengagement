@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
   def index
-    @sanity_test = "This is the Dashboard Bitches!"
+    @disable_twitter_button = current_user.identities.any?{ |i| i[:provider] == "twitter"}
   end
 end

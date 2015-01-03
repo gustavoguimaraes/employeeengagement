@@ -1,8 +1,11 @@
-<h1><%= @sanity_test %></h1>
-<h2>Hello You!</h2>
+<h2>Employee Engagement Dashboard</h2>
 
-<%= link_to "Connect with Twitter", '/auth/twitter'%>
+<% unless @disable_twitter_button %>
+  <%= button_to "Connect with Twitter", '/auth/twitter', method: "get", class: "btn btn-primary"%>
+<%else%>
+  <%= button_to "Twitter already connected", '/auth/twitter', method: "get", disabled: true, class: "btn btn-primary"%>
+<%end%>
 <br>
-<%= link_to "Connect with Facebook", '/auth/facebook'%>
+<%= button_to "Connect with Facebook", '/auth/facebook', method: "get", class: "btn btn-primary"%>
 <br>
-<%= link_to "Connect with LinkedIn", "/auth/linkedin" %>
+<%= button_to "Connect with LinkedIn", "/auth/linkedin", method: "get", class: "btn btn-primary" %>
