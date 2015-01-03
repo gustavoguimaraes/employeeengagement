@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   root to: "home#index"
   get 'dashboard', to: "dashboard#index"
 
-  get '/auth/twitter/callback', to: "callbacks#twitter"
-  get '/auth/facebook/callback', to: "callbacks#facebook"
+  get '/auth/twitter/callback', to: "callbacks#connect_social_media"
+  get '/auth/facebook/callback', to: "callbacks#connect_social_media"
+  get '/auth/linkedin/callback', to: "callbacks#connect_social_media"
 
   devise_for :users, :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
