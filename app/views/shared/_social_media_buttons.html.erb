@@ -1,0 +1,10 @@
+<% ["twitter", "facebook", "linkedin"].map do |u| %>
+  <div class="col-lg-4 col-xs-6">
+    <%unless disable_button(u) %>
+      <%= button_to "Connect with #{u.capitalize}", "/auth/#{u}", method: "get", class: "btn btn-warning"%>
+    <%else%>
+      <%= button_to "#{u.capitalize} already connected", '/auth/#{u}', method: "get", disabled: true, class: "btn btn-warning" %>
+    <%end%>
+   </div>
+<%end%>
+
