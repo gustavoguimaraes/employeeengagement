@@ -11,6 +11,10 @@ Then(/^I should see "(.*?)"$/) do |text|
   expect(page).to have_content(text)
 end
 
+Then(/^there should be button "(.*?)"$/) do |text|
+    expect(page).to have_button(text)
+end
+
 When(/^I click on "(.*?)"$/) do |button_with_text|
   click_on(button_with_text)
 end

@@ -6,7 +6,7 @@ Feature: Adding Social Media to Account
   Scenario: Link Twitter
     Given I am logged in as a user
     When I am on the dashboard page
-    Then I should see "Connect with Twitter"
+    Then there should be button "Connect with Twitter"
 
     When I click on "Connect with Twitter"
     Then I should see "Twitter has been connected to your account!"
@@ -14,7 +14,7 @@ Feature: Adding Social Media to Account
   Scenario: Link Facebook
     Given I am logged in as a user
     When I am on the dashboard page
-    Then I should see "Connect with Facebook"
+    Then there should be button "Connect with Facebook"
 
     When I click on "Connect with Facebook"
     Then I should see "Facebook has been connected to your account!"
@@ -22,7 +22,7 @@ Feature: Adding Social Media to Account
   Scenario: Link LinkedIn
     Given I am logged in as a user
     When I am on the dashboard page
-    Then I should see "Connect with LinkedIn"
+    Then there should be button "Connect with Linkedin"
 
-    When I click on "Connect with LinkedIn"
+    When I click on "Connect with Linkedin"
     Then I should see "Linkedin has been connected to your account!"

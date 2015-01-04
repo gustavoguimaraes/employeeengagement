@@ -15,7 +15,7 @@ When(/^I register to the site$/) do
 end
 
 Then(/^I should see the app dashboard information$/) do
-  expect(page).to have_content("Hello You")
+  expect(page).to have_content("Dashboard")
 end
 
 Given(/^I am a user$/) do

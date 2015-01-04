@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  devise_for :admin_users, ActiveAdmin::Devise.config
 
   root to: "home#index"
-  get 'dashboard', to: "dashboard#index"
+  get 'dashboard', to: "user_dashboard#index"
 
   get '/auth/twitter/callback', to: "callbacks#connect_social_media"
   get '/auth/facebook/callback', to: "callbacks#connect_social_media"
