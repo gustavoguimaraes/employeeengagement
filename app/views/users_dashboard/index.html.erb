@@ -9,5 +9,11 @@
 
 <div class="text-center">
   <h2>Employee Engagement Dashboard</h2>
-  <%= link_to "Propose a post", post_path %>
+  <%= link_to "Propose a post", new_post_path %>
+  <div>
+    <% @user_posts.each do |post| %>
+    <p><%= post.title %></p>
+    <p><%= post.content %></p>
+    <% end %>
+  </div>
 </div>
