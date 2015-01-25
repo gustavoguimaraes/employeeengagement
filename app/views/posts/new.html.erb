@@ -2,19 +2,9 @@
   <h1>Post creation page</h1>
 
   <%= form_for @post do |f| %>
-
-    <p>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </p>
-
-    <p>
-      <%= f.label :content %><br>
-      <%= f.text_area :content %>
-    </p>
-
-    <p>
-      <%= f.submit %>
-    </p>
+    URL: <%= f.text_field :url, placeholder: "http://" %>
+    <%= f.submit class: "btn-warning" %>
   <% end %>
+
+
 </div>

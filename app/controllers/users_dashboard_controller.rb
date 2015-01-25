@@ -4,7 +4,6 @@ class UsersDashboardController < ApplicationController
 
   def index
     redirect_to admin_dashboard_path if current_admin_user
-    @user_posts = current_user.posts
-    # binding.pry
+    @user_posts = Post.order(created_at: :desc)
   end
 end

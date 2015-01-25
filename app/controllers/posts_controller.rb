@@ -10,8 +10,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user = current_user
+    url = params[:post][:url]
+    return redirect_to "/posts/new", notice: "Invalid format" if url.blank? || meta_inspector(url).title.empty?
+      @post = Post.new(url: url ,
+                      title: meta_inspector(url).title,
+                      content: meta_inspector(url).description,
+                      image: meta_inspector(url).images.best)
+      @post.user = current_user
 
     respond_to do |format|
       if @post.save
@@ -27,7 +32,11 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content, :title)
+    params.require(:post).permit(:url)
+  end
+
+  def meta_inspector(valid_url)
+    @meta_inspector ||= MetaInspector.new(valid_url, warn_level: :store, :connection_timeout => 5, :read_timeout => 5)
   end
 
 end

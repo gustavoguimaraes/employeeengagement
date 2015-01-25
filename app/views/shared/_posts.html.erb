@@ -1,0 +1,14 @@
+<div>
+  <% @user_posts.each do |post| %>
+  <div class="row posts-spacing">
+      <%= link_to image_tag("#{post.image}"), format_url(post.url), target: "blank" %>
+
+        <h3> Title </h3>
+        <%= link_to "#{post.title}", format_url(post.url), target: "blank" %>
+        <h3> Description </h3>
+        <%= post.content %>
+        <h3> Keywords </h3>
+        <p>Maybe Add Keywords later</p>
+  </div>
+  <% end %>
+</div>
