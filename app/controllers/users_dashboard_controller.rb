@@ -1,5 +1,5 @@
 class UsersDashboardController < ApplicationController
-
+  before_filter :authenticate_user!
   include DashboardHelper
 
   def index
