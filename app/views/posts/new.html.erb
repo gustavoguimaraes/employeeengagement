@@ -2,7 +2,8 @@
   <h1>Post creation page</h1>
 
   <%= form_for @post do |f| %>
-    URL: <%= f.text_field :url, placeholder: "http://" %>
+  	<%= f.label :url %>
+  	<%= f.text_field :url, placeholder: "http://" %>
     <%= f.submit class: "btn-warning" %>
   <% end %>
 
