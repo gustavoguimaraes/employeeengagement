@@ -9,13 +9,30 @@ class PostsController < ApplicationController
     end
   end
 
+  def approved
+    post = Post.find(params[:id])
+    post.approved!
+
+    redirect_to dashboard_path
+  end
+
+  def rejected
+    post = Post.find(params[:id])
+    post.rejected!
+
+    redirect_to dashboard_path
+  end
+
+
+
   def create
     url = params[:post][:url]
     return redirect_to "/posts/new", notice: "Invalid format" if url.blank? || meta_inspector(url).title.empty?
       @post = Post.new(url: url ,
                       title: meta_inspector(url).title,
                       content: meta_inspector(url).description,
-                      image: meta_inspector(url).images.best)
+                      image: meta_inspector(url).images.best,
+                      state: :pending)
       @post.user = current_user
 
     respond_to do |format|
