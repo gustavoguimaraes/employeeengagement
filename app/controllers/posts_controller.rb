@@ -23,8 +23,6 @@ class PostsController < ApplicationController
     redirect_to dashboard_path
   end
 
-
-
   def create
     url = params[:post][:url]
     return redirect_to "/posts/new", notice: "Invalid format" if url.blank? || meta_inspector(url).title.empty?
