@@ -9,8 +9,9 @@ Feature: Creating post
     And I propose a post
     Then the state of the post should be pending
 
-    Scenario: Signin
-      Given I am a Company admin
-      When I login
-      And I propose a post
-      Then the state of the post should be pending
+  Scenario: Signin
+    Given I am a company admin
+    When I login
+    And I propose a post
+    Then the state of the post should be pending
+
