@@ -1,5 +1,14 @@
-<div>
-  <% @user_posts.each do |post| %>
-    <%= post_helper(post) %>
-  <% end %>
+<div class="container" id="posts-list">
+	<% @user_posts.each_slice(3) do |posts| %>
+		<div class="row">
+	   	<% posts.each do |post| %>
+	  		<div class="col-md-4">
+			  	<div class="listing">
+		  	  	<%= post_helper(post) %>
+				  </div>
+				</div>
+		  <% end %>
+		</div>
+	<% end %>
 </div>
+
