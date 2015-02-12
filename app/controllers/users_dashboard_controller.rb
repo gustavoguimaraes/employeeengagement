@@ -4,6 +4,6 @@ class UsersDashboardController < ApplicationController
 
   def index
     redirect_to admin_dashboard_path if current_admin_user
-    @user_posts = Post.order(created_at: :desc)
+    @user_posts = Post.where.not(state: Post.states[:rejected]).order(created_at: :desc)
   end
 end
