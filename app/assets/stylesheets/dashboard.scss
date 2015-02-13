@@ -33,6 +33,19 @@
 }
 
 .listing {
+  margin-top: 10px;
   float:left;
+  text-align: center;
+  border: 1px dotted black;
 }
 
+.description-container {
+  width: 350px;
+  height: 150px;
+}
+
+.title-container {
+  width: 350px;
+  height: 80px;
+  position:relative;
+}

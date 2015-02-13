@@ -29,7 +29,7 @@ class PostsController < ApplicationController
       @post = Post.new(url: url ,
                       title: meta_inspector(url).title,
                       content: meta_inspector(url).description,
-                      image: meta_inspector(url).images.best,
+                      image: meta_inspector(url).images.owner_suggested,
                       state: :pending)
       @post.user = current_user
 
